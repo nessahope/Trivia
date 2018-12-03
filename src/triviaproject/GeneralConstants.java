@@ -18,6 +18,7 @@ public interface GeneralConstants {
 	
 	public static final String CATEGORY_USER_CHOICE = "Your choice: ";
 	
+	public static final String CATEGORY_TERMINATE = "Enter 0 to quit";
 	
 
 }

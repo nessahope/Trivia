@@ -5,98 +5,123 @@ package triviaproject;
 import java.util.Scanner;
 import triviaproject.Questions;
 
-//---------------------------------TO DO LIST-----------------------
-/*
-- 
-
- */
-
 
 
 public class triviaproject {
-
 	public static void main(String[] args) {
 		
+		ArtDatabase.initArtArrayQuestions();
+		ArtDatabase.initArtArrayChoices();
+		
+		EntertainmentDatabase.initEntArrayQuestions();
+		EntertainmentDatabase.initEntArrayChoices();
+		
+		GeographyDatabase.initGeoArrayQuestions();
+		GeographyDatabase.initGeoArrayChoices();
+		
+		HistoryDatabase.initHisArrayQuestions();
+		HistoryDatabase.initHisArrayChoices();
+		
+		MusicDatabase.initMusArrayQuestions();
+		MusicDatabase.initMusArrayChoices();
+		
+		ScienceDatabase.initSciArrayQuestions();
+		ScienceDatabase.initSciArrayChoices();
+		
+		float ccount = 0;
+		float total = 0;
 		int option = 0;
+		String category[][] = new String[20][2];
+		// Global 2D string array to save the category and percentage. 20 rows 2 columns
+		// ex categroy[numberOfGame][0] = "food" . It will store food in the first
+		// column
+		int numberOfGames = 0;
+		//pass this scanner throughout the whole project
 		Scanner scan = new Scanner(System.in);
+		
 	do {	
 		// to do . Has the menu category in this class
 		InputOutput io = new InputOutput();
-		option = io.InputUser();
+		option = io.InputUser(scan);
 		
 		Questions q = new Questions();
-		double ccount = 0.0;
-		double total = 0.0;
-		//Global 2D string array to save the category and percentage. 20 rows 2 columns
-		//ex categroy[numberOfGame][0] = "food" . It will store food in the first column
-		int numberOfGames = 0;
-		String category[][]= new String[20][2];
+
 		
 		switch(option) {
-		case 1: {
-			CategoryQuestions geoQues = new CategoryQuestions();
-			CategoryChoices geoChoi = new CategoryChoices();
-			
-			String geo[] = geoQues.getGeoQuestionsArray();
-			//String array of 1 - 10 multiple choice options
-			String geochoice[] = geoChoi.getGeoChoicesArray();
-			
-			String geoans[] = {"A","B","C","A","B"};
-			for(int i =0; i < geo.length; i++){
-				System.out.println(geo[i]);
-				System.out.println(geochoice[i]);
-				Scanner enter = new Scanner(System.in);
-			if (enter.next() ==geoans[i]){
-				ccount++;
-				total++;
-				} else {
-				total++;
+		case 1: 
+				for (int i = 0; i < GeographyDatabase.geoQuestionsPointer; i++) {
+					System.out.println(GeographyDatabase.geoQuestions[i]);
+					System.out.println((1) + ". "+ GeographyDatabase.geoChoices[i][0]);
+					System.out.println((2) + ". "+ GeographyDatabase.geoChoices[i][1]);
+					System.out.println((3) + ". "+ GeographyDatabase.geoChoices[i][2]);
+					System.out.println((4) + ". "+ GeographyDatabase.geoChoices[i][3]);
+		
+					System.out.println("Your choice: ");
+					//asking for the users input
+					Scanner enter = new Scanner(System.in);
+					String choice = enter.nextLine();
+					//comparing the users input with the answers using the i loop
+					if (choice.trim().equals(GeographyDatabase.geoChoices[i][4])) {
+						//increment the Correct Count and the total if correct
+						ccount++;
+						total++;
+					} else {
+						//Just increment the total. We will divide the total by ccount * 100 to get the average
+						total++;
 					}
-			}
-		}break;
+					//I need to save the percentage in a global array and the category name to present in a quitting menu. User will press 0 to quit and I will fetch the string array of the categories and concatenate the percentages
+				}
+	
+				category[numberOfGames][0] = ""+ countScore(ccount, total);
+				category[numberOfGames][1] = "Geography";
+				numberOfGames++;
+		break;
 		
 		case 2: {
-			CategoryQuestions hisQues = new CategoryQuestions();
-			CategoryChoices hisChoi = new CategoryChoices();
-			
-			String his[] = hisQues.getHisQuestionsArray();
-			//String array of 1 - 10 multiple choice options
-			String hischoice[] = hisChoi.getHisChoicesArray();
+				for (int i = 0; i < HistoryDatabase.hisQuestionsPointer; i++) {
+					System.out.println(HistoryDatabase.hisQuestions[i]);
+					System.out.println((1) + ". "+ HistoryDatabase.hisChoices[i][0]);
+					System.out.println((2) + ". "+ HistoryDatabase.hisChoices[i][1]);
+					System.out.println((3) + ". "+ HistoryDatabase.hisChoices[i][2]);
+					System.out.println((4) + ". "+ HistoryDatabase.hisChoices[i][3]);
 		
-			String hisans[] = {"A","B","C","A","B"};
-			for(int i =0; i < his.length; i++){
-				System.out.println(his[i]); 
-				System.out.println( hischoice[i]);
-				Scanner enter = new Scanner(System.in);
-				if (enter.next() == hisans[i]){
-				ccount++;
-				total++;
-				} else {
-				total++;
+					System.out.println("Your choice: ");
+					//asking for the users input
+					Scanner enter = new Scanner(System.in);
+					String choice = enter.nextLine();
+					//comparing the users input with the answers using the i loop
+					if (choice.trim().equals(HistoryDatabase.hisChoices[i][4])) {
+						//increment the Correct Count and the total if correct
+						ccount++;
+						total++;
+					} else {
+						//Just increment the total. We will divide the total by ccount * 100 to get the average
+						total++;
 					}
-			}
+					//I need to save the percentage in a global array and the category name to present in a quitting menu. User will press 0 to quit and I will fetch the string array of the categories and concatenate the percentages
+				}
+	
+				category[numberOfGames][0] = ""+ countScore(ccount, total);
+				category[numberOfGames][1] = "History";
+				numberOfGames++;
 		}break;
 		
 		case 3: {//String array of 1 - 10 Questions
-			CategoryQuestions artQues = new CategoryQuestions();
-			CategoryChoices artChoi = new CategoryChoices();
 			
-			String art[] = artQues.getArtQuestionsArray();
-			//String array of 1 - 10 multiple choice options
-			String artchoice[] = artChoi.getArtChoicesArray();
-			
-			//String array of the correct answers corresponding to the questions at the right indexes (0,0)
-				String artans[] = { "B", "C", "D", "A", "D", "B", "A", "B", "D", "D" };
 				//Looping through the array of questions
-				for (int i = 0; i < art.length; i++) {
-					System.out.println(art[i]);
-					//Use i to loop through the choices at the same time as the questions
-						System.out.println(artchoice[i]);
-						System.out.println("Your choice: ");
-						//asking for the users input
-						Scanner enter = new Scanner(System.in);
-						//comparing the users input with the answers using the i loop
-						if (enter.next() == artans[i]) {
+				for (int i = 0; i < ArtDatabase.artQuestionsPointer; i++) {
+					System.out.println(ArtDatabase.artQuestions[i]);
+					System.out.println((1) + ". "+ ArtDatabase.artChoices[i][0]);
+					System.out.println((2) + ". "+ ArtDatabase.artChoices[i][1]);
+					System.out.println((3) + ". "+ ArtDatabase.artChoices[i][2]);
+					System.out.println((4) + ". "+ ArtDatabase.artChoices[i][3]);
+					
+					System.out.println("Your choice: ");
+					//asking for the users input
+					Scanner enter = new Scanner(System.in);
+					String choice = enter.nextLine();
+					//comparing the users input with the answers using the i loop
+					if (choice.trim().equals(ArtDatabase.artChoices[i][4])) {
 							//increment the Correct Count and the total if correct
 							ccount++;
 							total++;
@@ -106,89 +131,117 @@ public class triviaproject {
 						}
 						//I need to save the percentage in a global array and the category name to present in a quitting menu. User will press 0 to quit and I will fetch the string array of the categories and concatenate the percentages
 				}
+				
+				category[numberOfGames][0] = ""+ countScore(ccount, total);
+				category[numberOfGames][1] = "Art";
+				numberOfGames++;
+				//print the Terminate line here
+				System.out.println();
 		}break;
 		
 		case 4: {
-			CategoryQuestions musQues = new CategoryQuestions();
-			CategoryChoices musChoi = new CategoryChoices();
-			
-			String mus[] = musQues.getMusQuestionsArray();
-			//String array of 1 - 10 multiple choice options
-			String muschoice[] = musChoi.getMusChoicesArray();
-			
-			String musans[] = {"A","B","C","A","B"};
-			for(int i =0; i < mus.length; i++){
-				System.out.println(mus[i]);
-				System.out.println(muschoice[i]);
-				Scanner enter = new Scanner(System.in);
-			if (enter.next() == musans[i]){
-				ccount++;
-				total++;
-				} else {
-				total++;
+				for (int i = 0; i < MusicDatabase.musQuestionsPointer; i++) {
+					System.out.println(MusicDatabase.musQuestions[i]);
+					System.out.println((1) + ". "+ MusicDatabase.musChoices[i][0]);
+					System.out.println((2) + ". "+ MusicDatabase.musChoices[i][1]);
+					System.out.println((3) + ". "+ MusicDatabase.musChoices[i][2]);
+					System.out.println((4) + ". "+ MusicDatabase.musChoices[i][3]);
+		
+					System.out.println("Your choice: ");
+					//asking for the users input
+					Scanner enter = new Scanner(System.in);
+					String choice = enter.nextLine();
+					//comparing the users input with the answers using the i loop
+					if (choice.trim().equals(MusicDatabase.musChoices[i][4])) {
+						//increment the Correct Count and the total if correct
+						ccount++;
+						total++;
+					} else {
+						//Just increment the total. We will divide the total by ccount * 100 to get the average
+						total++;
 					}
-			}
-			
+					//I need to save the percentage in a global array and the category name to present in a quitting menu. User will press 0 to quit and I will fetch the string array of the categories and concatenate the percentages
+				}
+	
+				category[numberOfGames][0] = ""+ countScore(ccount, total);
+				category[numberOfGames][1] = "Music";
+				numberOfGames++;
 		}break;
 		
 		case 5: {
-			CategoryQuestions sciQues = new CategoryQuestions();
-			CategoryChoices sciChoi = new CategoryChoices();
-			
-			String sci[] = sciQues.getSciQuestionsArray();
-			//String array of 1 - 10 multiple choice options
-			String scichoice[] = sciChoi.getSciChoicesArray();
-			
-			String scians[] = {"A","B","C","A","B"};
-			for(int i =0; i < sci.length; i++){
-				System.out.println(sci[i]); 
-				System.out.println(scichoice[i]);
-				Scanner enter = new Scanner(System.in);
-			if (enter.next() == scians[i]){
-				ccount++;
-				total++;
-				} else {
-				total++;
+				for (int i = 0; i < ScienceDatabase.sciQuestionsPointer; i++) {
+					System.out.println(ScienceDatabase.sciQuestions[i]);
+					System.out.println((1) + ". "+ ScienceDatabase.sciChoices[i][0]);
+					System.out.println((2) + ". "+ ScienceDatabase.sciChoices[i][1]);
+					System.out.println((3) + ". "+ ScienceDatabase.sciChoices[i][2]);
+					System.out.println((4) + ". "+ ScienceDatabase.sciChoices[i][3]);
+		
+					System.out.println("Your choice: ");
+					//asking for the users input
+					Scanner enter = new Scanner(System.in);
+					String choice = enter.nextLine();
+					//comparing the users input with the answers using the i loop
+					if (choice.trim().equals(ScienceDatabase.sciChoices[i][4])) {
+						//increment the Correct Count and the total if correct
+						ccount++;
+						total++;
+					} else {
+						//Just increment the total. We will divide the total by ccount * 100 to get the average
+						total++;
+					}
+					//I need to save the percentage in a global array and the category name to present in a quitting menu. User will press 0 to quit and I will fetch the string array of the categories and concatenate the percentages
 				}
-			}
-			
+	
+				category[numberOfGames][0] = ""+ countScore(ccount, total);
+				category[numberOfGames][1] = "Science";
+				numberOfGames++;
 		}break;
 		
 		case 6: {
-			CategoryQuestions entQues = new CategoryQuestions();
-			CategoryChoices entChoi = new CategoryChoices();
-			
-			String ent[] = entQues.getEntQuestionsArray();
-			//String array of 1 - 10 multiple choice options
-			String entchoice[] = entChoi.getEntChoicesArray();
-			
-			String entans[] = {"A","B","C","A","B"};
-			for(int i =0; i < ent.length; i++){
-				System.out.println(ent[i]);
-				System.out.println( entchoice[i]);
-				Scanner enter = new Scanner(System.in);
-			if (enter.next() == entans[i]){
-				ccount++;
-				total++;
-				} else {
-				total++;
+				for (int i = 0; i < EntertainmentDatabase.entQuestionsPointer; i++) {
+					System.out.println(EntertainmentDatabase.entQuestions[i]);
+					System.out.println((1) + ". "+ EntertainmentDatabase.entChoices[i][0]);
+					System.out.println((2) + ". "+ EntertainmentDatabase.entChoices[i][1]);
+					System.out.println((3) + ". "+ EntertainmentDatabase.entChoices[i][2]);
+					System.out.println((4) + ". "+ EntertainmentDatabase.entChoices[i][3]);
+
+					System.out.println("Your choice: ");
+					//asking for the users input
+					Scanner enter = new Scanner(System.in);
+					String choice = enter.nextLine();
+					//comparing the users input with the answers using the i loop
+					if (choice.trim().equals(EntertainmentDatabase.entChoices[i][4])) {
+						//increment the Correct Count and the total if correct
+						ccount++;
+						total++;
+					} else {
+						//Just increment the total. We will divide the total by ccount * 100 to get the average
+						total++;
+					}
+					//I need to save the percentage in a global array and the category name to present in a quitting menu. User will press 0 to quit and I will fetch the string array of the categories and concatenate the percentages
 				}
-			}
-			
+
+				category[numberOfGames][0] = ""+ countScore(ccount, total);
+				category[numberOfGames][1] = "Entertainment";
+				numberOfGames++;
 		}break;
 		
 		case 911: {
 			//modify, add, remove questions & answers
+			
 		}break;
-		
-		default:
-			double avg = (ccount / total) * 100;
 			
 		}//switch close	
 		}while (option != 0);
-		
-		
-	}
+	//this will be the exiting option. The category name and the percentage of average will be presented here
 
+	for(int l=0; l<numberOfGames;l++) {
+		System.out.println("Category " + category[l][0]+ "Score "+category[l][1]);
+	}
 	}//closes main
-//closes class
+	
+	public static float countScore(float count, float total) {
+		return (count*100)/total;
+	}
+	
+	}//closes class

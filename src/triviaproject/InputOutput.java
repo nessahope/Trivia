@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class InputOutput {
 	
-	Scanner scan = new Scanner(System.in);
 	
-	public int InputUser() {
+	
+	public int InputUser(Scanner scan) {
 		
 		System.out.println(GeneralConstants.CHOOSE_CATEGORY_MESSAGE);
 		System.out.println(GeneralConstants.CATEGORY_GEOGRAPHY);
@@ -16,6 +16,7 @@ public class InputOutput {
 		System.out.println(GeneralConstants.CATEGORY_SCIENCE);
 		System.out.println(GeneralConstants.CATEGORY_ENTERAINMENT);
 		System.out.println(GeneralConstants.CATEGORY_USER_CHOICE);
+		System.out.println(GeneralConstants.CATEGORY_TERMINATE);
 		
 		int userChoice = scan.nextInt();
 		
