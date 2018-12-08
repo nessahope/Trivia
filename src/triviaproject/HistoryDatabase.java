@@ -1,13 +1,18 @@
 package triviaproject;
 
 public class HistoryDatabase {
-	
+	/**
+	 * A database for all things History related
+	 */
 	public static String hisQuestions[] = new String[20];
 	public static String hisChoices[][] = new String[20][5];
 	public static int hisQuestionsPointer = 10;
 	public static int hisChoicesPointer = 10;
 	
 	public static void initHisArrayQuestions() {
+		/**
+		 * method with an array of all History questions
+		 */
 
 		hisQuestions[0] = "1. What happened to British street artist Banksy’s “Girl with Balloon” when it sold for $1.4 million at Sotheby’s auction house in 2018? ";
 		hisQuestions[1]  = "2. The silkscreen paintings of Campbell’s Soup Cans were created by which American artist?";
@@ -24,6 +29,9 @@ public class HistoryDatabase {
 	}
 
 	public static void initHisArrayChoices() {
+		/**
+		 * method with a two dimensional array of all History choices and corret answer
+		 */
 		
 		hisChoices[0][0] = "It exploded";
 		hisChoices[0][1] = "It shredded itself";

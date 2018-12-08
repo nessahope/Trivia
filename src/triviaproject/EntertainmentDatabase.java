@@ -1,6 +1,9 @@
 package triviaproject;
 
 public class EntertainmentDatabase {
+	/**
+	 * class for all things Entertainment
+	 */
 
 	public static String entQuestions[] = new String[20];
 	public static String entChoices[][] = new String[20][5];
@@ -8,6 +11,9 @@ public class EntertainmentDatabase {
 	public static int entChoicesPointer = 10;
 
 	public static void initEntArrayQuestions() {
+		/**
+		 * method with an array of all Entertainment questions
+		 */
 
 		entQuestions[0] = "1. What happened to British street artist Banksy’s “Girl with Balloon” when it sold for $1.4 million at Sotheby’s auction house in 2018? ";
 		entQuestions[1] = "2. The silkscreen paintings of Campbell’s Soup Cans were created by which American artist?";
@@ -23,6 +29,9 @@ public class EntertainmentDatabase {
 	}
 
 	public static void initEntArrayChoices() {
+		/**
+		 * method with a two dimensional array of all choices and correct answer
+		 */
 
 		entChoices[0][0] = "It exploded";
 		entChoices[0][1] = "It shredded itself";

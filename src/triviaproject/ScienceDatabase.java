@@ -1,5 +1,9 @@
 package triviaproject;
-
+/**
+ * Class for all things Science related
+ * @author Vanessa L'Esperance
+ *
+ */
 public class ScienceDatabase {
 	
 	public static String sciQuestions[] = new String[20];
@@ -8,6 +12,9 @@ public class ScienceDatabase {
 	public static int sciChoicesPointer = 10;
 	
 	public static void initSciArrayQuestions() {
+		/**
+		 * method with an array of all Science questions
+		 */
 
 		sciQuestions[0] = "1. What happened to British street artist Banksy’s “Girl with Balloon” when it sold for $1.4 million at Sotheby’s auction house in 2018? ";
 		sciQuestions[1]  = "2. The silkscreen paintings of Campbell’s Soup Cans were created by which American artist?";
@@ -24,6 +31,9 @@ public class ScienceDatabase {
 	}
 
 	public static void initSciArrayChoices() {
+		/**
+		 * method with a two dimensional array of all Science choices and correct answer
+		 */
 		
 		sciChoices[0][0] = "It exploded";
 		sciChoices[0][1] = "It shredded itself";

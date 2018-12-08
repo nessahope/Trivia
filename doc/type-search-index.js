@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"triviaproject","l":"ArtDatabase"}]

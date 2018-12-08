@@ -7,6 +7,9 @@ package triviaproject;
  *
  */
 public class ArtDatabase {
+	/**
+	 * A database for all Art related questions, choices, and answers
+	 */
 	//ctrl + shift + f to align that shit
 //This is for the questions
 	public static String artQuestions[] = new String[20];
@@ -14,22 +17,28 @@ public class ArtDatabase {
 	public static int artQuestionsPointer = 10;
 	public static int artChoicesPointer = 10;
 	
+	/**
+	 * method with an array of all Art questions
+	 */
 	public static void initArtArrayQuestions() {
 
-		artQuestions[0] = "1. What happened to British street artist Banksy’s “Girl with Balloon” when it sold for $1.4 million at Sotheby’s auction house in 2018? ";
-		artQuestions[1]  = "2. The silkscreen paintings of Campbell’s Soup Cans were created by which American artist?";
-		artQuestions[2]  = "3. Who painted The Sistine Chapel?";
-		artQuestions[3]  = "4. The Starry Night is an oil painting by which post-impressionist artist?";
-		artQuestions[4]  = "5. Artists Pablo Picasso and Georges Braque were pioneers to which movement?";
-		artQuestions[5]  = "6. Which is NOT a Williams Shakespeare great work?";
-		artQuestions[6]  = "7. Which is NOT an Alan Moore, graphic novelist, great work?";
-		artQuestions[7]  = "8. “Call me Ishmael” I the opening line from which great American novel?";
-		artQuestions[8]  = "9. Who is the author of the book “A brief History of Time”?";
-		artQuestions[9]  = "10. Who was the first Superhero created?";
+		artQuestions[0] = " What happened to British street artist Banksy’s “Girl with Balloon” when it sold for $1.4 million at Sotheby’s auction house in 2018? ";
+		artQuestions[1]  = " The silkscreen paintings of Campbell’s Soup Cans were created by which American artist?";
+		artQuestions[2]  = " Who painted The Sistine Chapel?";
+		artQuestions[3]  = " The Starry Night is an oil painting by which post-impressionist artist?";
+		artQuestions[4]  = " Artists Pablo Picasso and Georges Braque were pioneers to which movement?";
+		artQuestions[5]  = " Which is NOT a Williams Shakespeare great work?";
+		artQuestions[6]  = " Which is NOT an Alan Moore, graphic novelist, great work?";
+		artQuestions[7]  = " “Call me Ishmael” I the opening line from which great American novel?";
+		artQuestions[8]  = " Who is the author of the book “A brief History of Time”?";
+		artQuestions[9]  = " Who was the first Superhero created?";
 		
 		
 	}
 
+	/**
+	 * method with a two dimensional array of all choices and correct answer
+	 */
 	public static void initArtArrayChoices() {
 		
 		artChoices[0][0] = "It exploded";

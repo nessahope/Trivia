@@ -1,6 +1,9 @@
 package triviaproject;
 
 public class GeographyDatabase {
+	/**
+	 * A database for all things Geography related
+	 */
 
 	public static String geoQuestions[] = new String[20];
 	public static String geoChoices[][] = new String[20][5];
@@ -8,6 +11,9 @@ public class GeographyDatabase {
 	public static int geoChoicesPointer = 10;
 	
 	public static void initGeoArrayQuestions() {
+		/**
+		 * method with an array of all Geography questions
+		 */
 
 		geoQuestions[0] = "1. What happened to British street artist Banksy’s “Girl with Balloon” when it sold for $1.4 million at Sotheby’s auction house in 2018? ";
 		geoQuestions[1]  = "2. The silkscreen paintings of Campbell’s Soup Cans were created by which American artist?";
@@ -24,6 +30,9 @@ public class GeographyDatabase {
 	}
 
 	public static void initGeoArrayChoices() {
+		/**
+		 * method with a two dimensional array of all Geography choices and correct answer
+		 */
 		
 		geoChoices[0][0] = "It exploded";
 		geoChoices[0][1] = "It shredded itself";

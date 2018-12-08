@@ -3,11 +3,19 @@ package triviaproject;
 // Trivia Project
 
 import java.util.Scanner;
-import triviaproject.Questions;
 
 
 
 public class triviaproject {
+	/**
+	 *Main class of Trivia project
+	 */
+	
+	
+	/**
+	 * main method 
+	 * @param args default parameters of main method
+	 */
 	public static void main(String[] args) {
 		
 		ArtDatabase.initArtArrayQuestions();
@@ -31,6 +39,8 @@ public class triviaproject {
 		float ccount = 0;
 		float total = 0;
 		int option = 0;
+		int adminoption = 0;
+		
 		String category[][] = new String[20][2];
 		// Global 2D string array to save the category and percentage. 20 rows 2 columns
 		// ex categroy[numberOfGame][0] = "food" . It will store food in the first
@@ -43,8 +53,6 @@ public class triviaproject {
 		// to do . Has the menu category in this class
 		InputOutput io = new InputOutput();
 		option = io.InputUser(scan);
-		
-		Questions q = new Questions();
 
 		
 		switch(option) {
@@ -227,11 +235,20 @@ public class triviaproject {
 		}break;
 		
 		case 911: {
-			//modify, add, remove questions & answers
+			adminoption = io.InputAdmin(scan);
+			if (adminoption == 1) {
+				Admin.add(scan);	
+			}else if (adminoption == 2) {
+				Admin.edit(scan);
+			}else if (adminoption == 3){
+				Admin.remove(scan);
+			}
+		}
+			
 			
 		}break;
 			
-		}//switch close	
+		//switch close	
 		}while (option != 0);
 	//this will be the exiting option. The category name and the percentage of average will be presented here
 

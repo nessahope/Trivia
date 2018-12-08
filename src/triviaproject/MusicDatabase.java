@@ -1,13 +1,18 @@
 package triviaproject;
-
+/**
+ * Clas for all things Music related
+ * @author Vanessa L'Esperance
+ */
 public class MusicDatabase {
-
 	public static String musQuestions[] = new String[20];
 	public static String musChoices[][] = new String[20][5];
 	public static int musQuestionsPointer = 10;
 	public static int musChoicesPointer = 10;
 	
 	public static void initMusArrayQuestions() {
+		/**
+		 * method with an array of all Music questions
+		 */
 
 		musQuestions[0] = "1. What happened to British street artist Banksy’s “Girl with Balloon” when it sold for $1.4 million at Sotheby’s auction house in 2018? ";
 		musQuestions[1]  = "2. The silkscreen paintings of Campbell’s Soup Cans were created by which American artist?";
@@ -24,6 +29,9 @@ public class MusicDatabase {
 	}
 
 	public static void initMusArrayChoices() {
+		/**
+		 * method with a two dimensional array of all Music choices and correct answer
+		 */
 		
 		musChoices[0][0] = "It exploded";
 		musChoices[0][1] = "It shredded itself";

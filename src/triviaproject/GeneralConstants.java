@@ -1,7 +1,9 @@
 package triviaproject;
 
 public interface GeneralConstants {
-	//menu constants
+	/**
+	 * interface for all General constants strings
+	 */
 	public static final String CHOOSE_CATEGORY_MESSAGE = "Choose a Category: ";
 
 	public static final String CATEGORY_GEOGRAPHY = "1. Geography";
